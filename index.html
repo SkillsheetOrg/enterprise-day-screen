@@ -115,7 +115,7 @@ function build(){
  const m=nowMin(),deck=[],reel=[];
  deck.push(()=>`<div class="eye">Today at AI Days</div><h1 class="big">Startup to Enterprise Day</h1><div class="agenda">${SESS.map(s=>`<div class="tm ${m>=s.start&&m<s.end?"now":""}">${esc(s.time)}</div><div>${esc(s.title)}</div>`).join("")}</div>`);
  // Per session: sponsor, speakers + QR, talk background, speakers + QR again
- SESS.filter(s=>s.people.length).forEach(s=>{const c=()=>sessionCard(s),t=()=>TALK();t.bg=s.bg;t.talk=1;if(s.start===660){const ph=()=>"";ph.img="assets/venue_photo.webp";ph.talk=1;deck.push(ph)}deck.push(sp,c,t,c)});
+ SESS.filter(s=>s.people.length).forEach(s=>{const c=()=>sessionCard(s),t=()=>TALK();t.bg=s.bg;t.talk=1;if(s.start===660){const ph=()=>`<div style="position:absolute;top:-170px;left:-128px;width:1920px;box-sizing:border-box;padding:64px 80px 140px;background:linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,0));font:600 64px Inter,sans-serif;color:#F8F7F4;text-align:center">This could be your office. Ask Natalia for a tour!</div>`;ph.img="assets/venue_photo.webp";ph.talk=1;deck.push(ph)}deck.push(sp,c,t,c)});
  const hh=()=>`<div class="eye">3:00–5:00 PM · downstairs</div><h1 class="big">Happy Hour &amp; Startup Showcase</h1><p class="lede">Meet today’s ${STARTUPS.length} startups, grab a drink, and find the people you came to meet.</p><div style="display:flex;align-items:center;gap:28px;margin-top:56px"><span class="r">VISIT THE JLL BOOTH</span><img src="assets/sp_jll.png" alt="JLL" style="height:72px"></div>`;
  deck.push(sp);deck.push(hh);
  reel.push(sp);
